@@ -1,0 +1,163 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Orbitron', sans-serif;
+    overflow: hidden;
+    background-color: #1e1e1e; /* Fondo oscuro para resaltar partículas */
+}
+
+#particle-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.countdown-container {
+    text-align: center;
+    color: #ffffff;
+    padding: 20px;
+    background: rgba(228, 50, 222, 0.389);
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(206, 1, 229, 0.604);
+    animation: fadeIn 1s ease-in-out;
+}
+
+h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+    color: #ff00ff;
+}
+
+#countdown {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: nowrap; /* Mantiene los elementos en una sola línea */
+}
+
+.time {
+    font-size: 2em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+}
+
+.time span:first-child {
+    display: block;
+    font-size: 3em;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@media (max-width: 1200px) {
+    h1 {
+        font-size: 2.5em;
+    }
+
+    .time {
+        font-size: 1.8em;
+    }
+
+    .time span:first-child {
+        font-size: 2.5em;
+    }
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2em;
+    }
+
+    .time {
+        font-size: 1.5em;
+    }
+
+    .time span:first-child {
+        font-size: 2em;
+    }
+
+    #countdown {
+        gap: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.5em;
+    }
+
+    .time {
+        font-size: 1.2em;
+    }
+
+    .time span:first-child {
+        font-size: 1.8em;
+    }
+
+    #countdown {
+        gap: 5px; /* Reduce el espacio entre los elementos en pantallas pequeñas */
+    }
+
+    .time {
+        margin: 5px; /* Reduce el margen en pantallas pequeñas */
+    }
+}
+
+/* Estilos para las partículas de corazones */
+.particle-heart {
+    position: absolute;
+    width: 12px; /* Tamaño predeterminado */
+    height: 12px;
+    background-color: #ff69b4;
+    transform: rotate(-45deg);
+    animation: float 12s infinite; /* Mayor duración para desvanecimiento más lento */
+}
+
+.particle-heart:before,
+.particle-heart:after {
+    content: "";
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background-color: #ff69b4;
+    border-radius: 50%;
+}
+
+.particle-heart:before {
+    top: -6px;
+    left: 0;
+}
+
+.particle-heart:after {
+    top: 0;
+    left: -6px;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0) rotate(-45deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100vh) rotate(-45deg);
+        opacity: 0;
+    }
+}
